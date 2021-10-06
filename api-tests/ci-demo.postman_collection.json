@@ -1,0 +1,83 @@
+{
+    "variables": [],
+    "info": {
+        "name": "ci-demo",
+        "_postman_id": "eaba83b1-65f2-e995-adcf-e07477fe67dd",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Check Health",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "tests[\"Body matches string\"] = responseBody.has(\"Active\");",
+                            "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://{{host_name}}:{{host_port}}/health",
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "description": ""
+            },
+            "response": []
+        },
+        {
+            "name": "Check Not Implemented",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "tests[\"Body matches string\"] = responseBody.has(\"Not Implemented\");",
+                            "tests[\"Status code is 501\"] = responseCode.code === 501;"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://{{host_name}}:{{host_port}}/nsync",
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "description": ""
+            },
+            "response": []
+        },
+        {
+            "name": "Check New Kids",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                            "",
+                            "var jsonData = JSON.parse(responseBody);",
+                            "tests[\"Make sure Donnie is in the list\"] = jsonData[0] === \"Donnie\";",
+                            "tests[\"Make sure Mark is not in the list\"] = !responseBody.has(\"Mark\");"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": "http://{{host_name}}:{{host_port}}/newkids",
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "description": ""
+            },
+            "response": []
+        }
+    ]
+}

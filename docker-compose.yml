@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: ci-demo
+    ports:
+      - "3000"
+  app-test:
+    image: postman/newman_ubuntu1404:4.5.5
+    depends_on:
+      - app
+    entrypoint: [""]
+    volumes:
+      - ./api-tests:/etc/newman
+    command: >
+        newman run ci-demo.postman_collection.json 
+        --environment="ci.postman_environment.json" 
+        --reporters cli,junit --reporter-junit-export /etc/newman/api-results.xml

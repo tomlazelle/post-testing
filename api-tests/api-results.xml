@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="ci-demo" tests="3" time="0.160">
+  <testsuite name="Check Health" id="2bcc0dd2-7f5a-4be1-acda-2508bc6949f3" timestamp="2021-10-05T21:17:43.431Z" tests="2" failures="0" errors="0" time="0.144">
+    <testcase name="Body matches string" time="0.144" classname="CiDemo"/>
+    <testcase name="Status code is 200" time="0.144" classname="CiDemo"/>
+  </testsuite>
+  <testsuite name="Check Not Implemented" id="0484f341-1351-4fee-ad1c-e50dce002465" timestamp="2021-10-05T21:17:43.431Z" tests="2" failures="1" errors="0" time="0.010">
+    <testcase name="Body matches string" time="0.010" classname="CiDemo"/>
+    <testcase name="Status code is 501" time="0.010" classname="CiDemo">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: eaba83b1-65f2-e995-adcf-e07477fe67dd.]]>
+        <![CDATA[Collection name: ci-demo.]]>
+        <![CDATA[Request name: Check Not Implemented.]]>
+        <![CDATA[Test description: Status code is 501.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:2:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Check New Kids" id="eecbe3d0-31db-4932-b51a-af4bf567ad6b" timestamp="2021-10-05T21:17:43.431Z" tests="3" failures="0" errors="0" time="0.006">
+    <testcase name="Status code is 200" time="0.006" classname="CiDemo"/>
+    <testcase name="Make sure Donnie is in the list" time="0.006" classname="CiDemo"/>
+    <testcase name="Make sure Mark is not in the list" time="0.006" classname="CiDemo"/>
+  </testsuite>
+</testsuites>
