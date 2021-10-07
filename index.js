@@ -10,7 +10,7 @@ app.get("/newkids", (req, res, next) => {
 });
 
 app.get("/nsync", (req, res, next) => {
-    res.status(500);
+    res.status(501);
     res.send("Not Implemented");
 
 });
